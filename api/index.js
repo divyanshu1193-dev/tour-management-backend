@@ -20,14 +20,14 @@ app.get('/', (req, res) => {
 });
 
 // Attach routes
-app.use('/api/applications', require('./applications'));
-app.use('/api/tours', require('./tours'));
-app.use('/api/alerts', require('./alerts'));
-app.use('/api/stats', require('./stats'));
-app.use('/api/users', require('./users'));
-app.use('/api/locations', require('./locations'));
-app.use('/api/settings', require('./settings'));
-app.use('/api/ulb', require('./ulb'));
+app.use('/applications', require('./applications'));
+app.use('/tours', require('./tours'));
+app.use('/alerts', require('./alerts'));
+app.use('/stats', require('./stats'));
+app.use('/users', require('./users'));
+app.use('/locations', require('./locations'));
+app.use('/settings', require('./settings'));
+app.use('/ulb', require('./ulb'));
 
 app.use(errorHandler);
 
