@@ -5,6 +5,7 @@ const serverless = require('serverless-http');
 
 const errorHandler = require('../middleware/errorHandler');
 const dailyTourCheck = require('../jobs/dailyTourCheck');
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -12,6 +13,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 
 dailyTourCheck();
+
+// Root route for testing
+app.get('/', (req, res) => {
+  res.send('API is running!');
+});
 
 // Attach routes
 app.use('/api/applications', require('./applications'));
@@ -26,4 +32,4 @@ app.use('/api/ulb', require('./ulb'));
 app.use(errorHandler);
 
 // Export for Vercel
-module.exports = app;
+module.exports = serverless(app);
