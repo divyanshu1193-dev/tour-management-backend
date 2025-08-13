@@ -26,4 +26,4 @@ app.use('/api/ulb', require('./ulb'));
 app.use(errorHandler);
 
 // Export for Vercel
-module.exports = serverless(app);
+module.exports = app;
